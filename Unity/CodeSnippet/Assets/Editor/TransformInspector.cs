@@ -84,7 +84,6 @@ namespace SRTwo
 		private static GUIContent ROTATION_GUI_CONTENTS = new GUIContent("Rotation");
 		private static GUIContent SCALE_GUI_CONTENTS = new GUIContent("Scale");
 
-
 		private SerializedProperty mPosition;
 		private SerializedProperty mRotation;
 		private SerializedProperty mScale;

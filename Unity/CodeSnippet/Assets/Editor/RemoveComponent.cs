@@ -6,12 +6,9 @@ namespace aisilol
 {
 	public class RemoveComponentForPrefab
 	{
-		[MenuItem("Assets/Remove All Components For Prefab")]
-		public static void RemoveComponent()
+		public static void RemoveComponent<T>() where T : Component
 		{
 			// Remove Component Type
-			var type = typeof(AudioSource);
-
 			var assetPaths = AssetDatabase.GetAllAssetPaths();
 			for (var index = 0; index < assetPaths.Length; index++)
 			{
@@ -27,7 +24,7 @@ namespace aisilol
 				if (asset == null)
 					continue;
 
-				var components = asset.GetComponentsInChildren(type);
+				var components = asset.GetComponentsInChildren<T>();
 				if (components.Length == 0)
 					continue;
 
