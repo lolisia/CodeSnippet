@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace SRTwo
+namespace aisilol
 {
 	[CustomEditor(typeof(Transform))]
 	public class TransformInspector : Editor
