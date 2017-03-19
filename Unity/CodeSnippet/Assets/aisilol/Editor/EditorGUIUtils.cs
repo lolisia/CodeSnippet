@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace aisilol
@@ -18,5 +16,10 @@ namespace aisilol
 		}
 
 		private Color mOriginalColor;
+	}
+	public class HandlesGUIScope : Scope
+	{
+		public HandlesGUIScope() { Handles.BeginGUI(); }
+		protected override void CloseScope() { Handles.EndGUI(); }
 	}
 }
