@@ -30,7 +30,9 @@ namespace aisilol
 
 				var o = new GameObject(Name, typeof(T));
 				mInstance = o.GetComponent<T>();
-				DontDestroyOnLoad(o);
+
+				if (Application.isPlaying)
+					DontDestroyOnLoad(o);
 
 				return mInstance;
 			}

@@ -70,7 +70,7 @@ namespace aisilol
 				mWindowRect = new Rect(mWindow.GetDefaultPosition(view.camera.pixelRect), Vector2.zero);
 			}
 
-			using (new HandlesGUIScope())
+			using (new Handles_.GUIScope())
 			{
 				if (mNeedUpdateWindowSize)
 				{
