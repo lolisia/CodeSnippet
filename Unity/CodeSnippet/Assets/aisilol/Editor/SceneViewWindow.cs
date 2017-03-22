@@ -90,10 +90,7 @@ namespace aisilol
 				if (mWindow.NeedUpdateWindowSize)
 				{
 					mWindow.NeedUpdateWindowSize = false;
-					foreach (var pair in mInstanceDic)
-					{
-						pair.Value.mNeedUpdateWindowSize = true;
-					}
+					mInstanceDic.ForEachValues(_ => _.mNeedUpdateWindowSize = true);
 
 					SceneView.RepaintAll();
 				}

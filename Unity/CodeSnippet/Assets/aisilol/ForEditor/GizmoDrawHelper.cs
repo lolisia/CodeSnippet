@@ -26,13 +26,10 @@ namespace aisilol
 
 		void OnDrawGizmos()
 		{
-			foreach (var pair in mGizmoDrawItemListDic)
+			mGizmoDrawItemListDic.ForEach((_target, _itemList) =>
 			{
-				foreach (var item in pair.Value)
-				{
-					item.Draw(pair.Key);
-				}
-			}
+				_itemList.ForEach(_ => _.Draw(_target));
+			});
 		}
 
 		private Dictionary<GameObject, List<IGizmoDrawItem>> mGizmoDrawItemListDic = new Dictionary<GameObject, List<IGizmoDrawItem>>();
@@ -78,7 +75,10 @@ namespace aisilol
 
 			if (mStyle == null)
 			{
-				mStyle = new GUIStyle("label");
+				mStyle = new GUIStyle("label")
+				{
+					alignment = TextAnchor.MiddleCenter
+				};
 				mStyle.normal.textColor = Color;
 			}
 
