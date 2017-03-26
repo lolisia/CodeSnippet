@@ -82,16 +82,25 @@ namespace aisilol
 				mStyle.normal.textColor = Color;
 			}
 
-			Handles.Label(_target.transform.position, mTextAction(_target), mStyle);
+			var pos = _target.transform.position + mDrawOffset;
+			Handles.Label(pos, mTextAction(_target), mStyle);
 		}
 
 		public GizmoDrawItem_DrawText(Color _color, Func<GameObject, string> _textAction)
 		{
 			Color = _color;
 			mTextAction = _textAction;
+			mDrawOffset = Vector3.zero;
+		}
+		public GizmoDrawItem_DrawText(Color _color, Func<GameObject, string> _textAction, Vector3 _offset)
+		{
+			Color = _color;
+			mTextAction = _textAction;
+			mDrawOffset = _offset;
 		}
 
 
+		private Vector3 mDrawOffset;
 		private GUIStyle mStyle;
 		private Func<GameObject, string> mTextAction;
 	}
