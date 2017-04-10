@@ -70,7 +70,7 @@ namespace aisilol
 				mWindowRect = new Rect(mWindow.GetDefaultPosition(view.camera.pixelRect), Vector2.zero);
 			}
 
-			using (new HandlesGUIScope())
+			using (new Handles_.GUIScope())
 			{
 				if (mNeedUpdateWindowSize)
 				{
@@ -90,10 +90,7 @@ namespace aisilol
 				if (mWindow.NeedUpdateWindowSize)
 				{
 					mWindow.NeedUpdateWindowSize = false;
-					foreach (var pair in mInstanceDic)
-					{
-						pair.Value.mNeedUpdateWindowSize = true;
-					}
+					mInstanceDic.ForEachValues(_ => _.mNeedUpdateWindowSize = true);
 
 					SceneView.RepaintAll();
 				}
