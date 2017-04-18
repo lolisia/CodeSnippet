@@ -2,7 +2,7 @@
 
 namespace aisilol
 {
-	public static class MathUtils
+	public static class Math_
 	{
 		public static float Divide(float _numerator, float _denominator)
 		{

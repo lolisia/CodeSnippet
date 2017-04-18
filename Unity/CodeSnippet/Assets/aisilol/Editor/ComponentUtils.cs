@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace aisilol
 {
-	public static class ComponentUtils
+	public static class Component_
 	{
 		public static List<GameObject> FindMissingComponentAssets()
 		{

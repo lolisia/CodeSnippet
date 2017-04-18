@@ -2,7 +2,7 @@
 
 namespace aisilol
 {
-	public static class ColliderUtils
+	public static class Collider_
 	{
 		public static Bounds GetBounds(Transform _target)
 		{

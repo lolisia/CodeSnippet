@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace aisilol
 {
-	public static class PathUtils
+	public static class Path_
 	{
 		public static string AssetToAbsolute(string _assetPath)
 		{

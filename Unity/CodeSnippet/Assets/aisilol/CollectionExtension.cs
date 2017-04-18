@@ -26,6 +26,13 @@ namespace aisilol
 
 			return _dictionary[_key];
 		}
+		public static string Get<TKey>(this Dictionary<TKey, string> _dictionary, TKey _key)	// TValue specialization
+		{
+			if (!_dictionary.ContainsKey(_key))
+				_dictionary.Add(_key, string.Empty);
+
+			return _dictionary[_key];
+		}
 		public static void ForEach<TKey, TValue>(this Dictionary<TKey, TValue> _dictionary, Action<TKey, TValue> _caller)
 		{
 			foreach (var pair in _dictionary)

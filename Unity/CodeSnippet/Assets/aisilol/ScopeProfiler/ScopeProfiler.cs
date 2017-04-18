@@ -41,7 +41,7 @@ namespace aisilol
 					if (CallCount == 0)
 						return Elapsed;
 
-					return MathUtils.Divide(Elapsed, CallCount);
+					return Math_.Divide(Elapsed, CallCount);
 				}
 			}
 		}
