@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace aisilol
@@ -21,9 +20,9 @@ namespace aisilol
 		private float mStartTime;
 	}
 
-	static class ScopeProfilerManager
+	public static class ScopeProfilerManager
 	{
-		class ProfileInfo
+		public class ProfileInfo
 		{
 			public int CallCount { get; private set; }
 			public float Elapsed { get; private set; }
@@ -46,7 +45,7 @@ namespace aisilol
 			}
 		}
 
-		public static void Add(string _name, float _duration)
+		internal static void Add(string _name, float _duration)
 		{
 			var info = sProfileInfoDic.Get(_name);
 			info.AddElapsed(_duration);
@@ -54,6 +53,10 @@ namespace aisilol
 		public static void Clear()
 		{
 			sProfileInfoDic.Clear();
+		}
+		public static Dictionary<string, ProfileInfo> GetResult()
+		{
+			return sProfileInfoDic;
 		}
 
 		private static Dictionary<string, ProfileInfo> sProfileInfoDic = new Dictionary<string, ProfileInfo>();
