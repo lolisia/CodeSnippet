@@ -5,3 +5,4 @@ CodeSnippet.Editor.csproj
 CodeSnippet.sln
 .vs
 /.gitignore
+/Unity/CodeSnippet/*.userprefs
