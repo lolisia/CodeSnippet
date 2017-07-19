@@ -6,3 +6,4 @@ CodeSnippet.sln
 .vs
 /.gitignore
 /Unity/CodeSnippet/*.userprefs
+*.meta
