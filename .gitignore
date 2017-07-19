@@ -6,4 +6,7 @@ CodeSnippet.sln
 .vs
 /.gitignore
 /Unity/CodeSnippet/*.userprefs
-*.meta
+/README.md.meta
+/Unity.meta
+/Unity/CodeSnippet.meta
+/Unity/CodeSnippet/Assets.meta

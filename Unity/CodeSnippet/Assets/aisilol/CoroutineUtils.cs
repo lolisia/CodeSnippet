@@ -1,31 +1,34 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class SingleCoroutineRunner
+namespace aisilol
 {
-    public SingleCoroutineRunner(MonoBehaviour _runner)
+    public class SingleCoroutineRunner
     {
-        mRunner = _runner;
+        public SingleCoroutineRunner(MonoBehaviour _runner)
+        {
+            mRunner = _runner;
+        }
+        public void Run(IEnumerator _routine)
+        {
+            if (mRunner == null)
+                return;
+
+            Stop();
+
+            mRoutine = _routine;
+            mRunner.StartCoroutine(mRoutine);
+        }
+        public void Stop()
+        {
+            if (mRoutine == null)
+                return;
+
+            mRunner.StopCoroutine(mRoutine);
+            mRoutine = null;
+        }
+
+        private MonoBehaviour mRunner;
+        private IEnumerator mRoutine;
     }
-    public void Run(IEnumerator _routine)
-    {
-        if (mRunner == null)
-            return;
-
-        Stop();
-
-        mRoutine = _routine;
-        mRunner.StartCoroutine(mRoutine);
-    }
-    public void Stop()
-    {
-        if (mRoutine == null)
-            return;
-
-        mRunner.StopCoroutine(mRoutine);
-        mRoutine = null;
-    }
-
-    private MonoBehaviour mRunner;
-    private IEnumerator mRoutine;
 }
