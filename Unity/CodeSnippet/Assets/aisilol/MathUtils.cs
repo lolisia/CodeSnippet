@@ -21,5 +21,10 @@ namespace aisilol
 		{
 			return Random.Range(0, 100) <= _rate;
 		}
+
+        public static bool Approximately(float _lhs, float _rhs, float _epsilon = 0.0001f)
+        {
+            return Mathf.Abs(_lhs - _rhs) < _epsilon;
+        }
 	}
 }

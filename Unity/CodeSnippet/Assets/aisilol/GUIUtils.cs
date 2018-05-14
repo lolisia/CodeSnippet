@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace aisilol
 {
@@ -18,5 +19,16 @@ namespace aisilol
 
 			private Color mOriginalColor;
 		}
+        public class DisableGroupScope : Scope
+        {
+            public DisableGroupScope(bool _disable)
+            {
+                EditorGUI.BeginDisabledGroup(_disable);
+            }
+            protected override void CloseScope()
+            {
+                EditorGUI.EndDisabledGroup();
+            }
+        }
 	}
 }

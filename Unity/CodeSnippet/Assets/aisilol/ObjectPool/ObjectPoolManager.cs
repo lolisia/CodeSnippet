@@ -40,7 +40,7 @@ namespace aisilol
 
         private GameObject createInstance(GameObject _prefab)
         {
-            return Instantiate(_prefab);
+            return GameObject_.Instantiate(_prefab);
         }
 
         private Dictionary<GameObject, List<ObjectPoolItem>> mPrefabInstanceDic = new Dictionary<GameObject, List<ObjectPoolItem>>();
