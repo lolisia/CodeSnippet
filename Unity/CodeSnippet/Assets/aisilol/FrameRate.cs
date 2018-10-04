@@ -54,7 +54,7 @@ namespace aisilol
 			GUI.Box(new Rect(20 - offset, 20 - offset, 100 + offset * 2, height * 4 + offset * 2), "");
 			using (new GUI.GroupScope(new Rect(20, 20, 100, height * 4)))
 			{
-				using (new GUI_.ColorScope(Current == Min ? Color.red : Color.green))
+				using (new GUI_.ColorScope(Mathf.Approximately(Current, Min) ? Color.red : Color.green))
 				{
 					GUI.Label(new Rect(0, 0, 100, height), string.Format("{0} FPS", Current.ToString("f2")), mBoldLabel);
 				}

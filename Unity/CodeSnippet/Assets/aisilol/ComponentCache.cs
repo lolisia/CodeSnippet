@@ -32,7 +32,7 @@ namespace aisilol
 		}
 
 
-		private GameObject mGameObject;
-		private Dictionary<string, Component> mComponentCacheDic = new Dictionary<string, Component>();
+		private readonly GameObject mGameObject;
+		private readonly Dictionary<string, Component> mComponentCacheDic = new Dictionary<string, Component>();
 	}
 }

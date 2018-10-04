@@ -16,8 +16,8 @@ namespace aisilol
 		}
 
 
-		private string mName;
-		private float mStartTime;
+		private readonly string mName;
+		private readonly float mStartTime;
 	}
 
 	public static class ScopeProfilerManager
@@ -59,6 +59,6 @@ namespace aisilol
 			return sProfileInfoDic;
 		}
 
-		private static Dictionary<string, ProfileInfo> sProfileInfoDic = new Dictionary<string, ProfileInfo>();
+		private static readonly Dictionary<string, ProfileInfo> sProfileInfoDic = new Dictionary<string, ProfileInfo>();
 	}
 }

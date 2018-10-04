@@ -90,7 +90,7 @@ namespace aisilol
 				}
 			}
 
-			private IEnumerator mRoutine;
+			private readonly IEnumerator mRoutine;
 			private IWaitItem mWaitItem;
 		}
 #endif

@@ -16,7 +16,7 @@ namespace aisilol
 		}
 		public static GameObject Instantiate(GameObject original, Transform parent = null)
 		{
-			var result = GameObject.Instantiate(original, parent);
+			var result = Object.Instantiate(original, parent);
 			var t = result.transform;
 
 			t.parent = parent;

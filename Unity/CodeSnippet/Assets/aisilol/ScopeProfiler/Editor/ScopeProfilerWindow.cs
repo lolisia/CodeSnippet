@@ -35,7 +35,7 @@ namespace aisilol
 			{
 				mScrollPosition = scroll.scrollPosition;
 
-				using (new ScopeProfiler("ScopeProfilerWindow " + Time.realtimeSinceStartup))
+				using (new ScopeProfiler("ScopeProfilerWindow " + (int)Time.realtimeSinceStartup))
 				{
 					if (GUILayoutUtils.SizeButton(new GUIContent("Clear Data")))
 					{
@@ -60,8 +60,8 @@ namespace aisilol
 			}
 		}
 
-		private List<GUIContent> mColumns = new List<GUIContent>();
-		private List<List<GUIContent>> mRows = new List<List<GUIContent>>();
+		private readonly List<GUIContent> mColumns = new List<GUIContent>();
+		private readonly List<List<GUIContent>> mRows = new List<List<GUIContent>>();
 
 		private int mSelectedGridIndex;
 		private float mNextUpdate;

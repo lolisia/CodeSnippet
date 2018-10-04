@@ -43,6 +43,6 @@ namespace aisilol
             return GameObject_.Instantiate(_prefab);
         }
 
-        private Dictionary<GameObject, List<ObjectPoolItem>> mPrefabInstanceDic = new Dictionary<GameObject, List<ObjectPoolItem>>();
+        private readonly Dictionary<GameObject, List<ObjectPoolItem>> mPrefabInstanceDic = new Dictionary<GameObject, List<ObjectPoolItem>>();
     }
 }

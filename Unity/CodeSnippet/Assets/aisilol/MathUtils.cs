@@ -6,11 +6,11 @@ namespace aisilol
 	{
 		public static float Divide(float _numerator, float _denominator)
 		{
-			return _denominator == 0 ? 0 : (_numerator / _denominator);
+			return Mathf.Approximately(_denominator, 0) ? 0 : (_numerator / _denominator);
 		}
 		public static float Remainder(float _numerator, float _denominator)
 		{
-			return _denominator == 0 ? 0 : (_numerator % _denominator);
+			return Mathf.Approximately(_denominator, 0) ? 0 : (_numerator % _denominator);
 		}
 
 		public static bool InRange(float _rate)

@@ -28,7 +28,7 @@ namespace aisilol
             mRoutine = null;
         }
 
-        private MonoBehaviour mRunner;
+        private readonly MonoBehaviour mRunner;
         private IEnumerator mRoutine;
     }
 }

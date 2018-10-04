@@ -17,7 +17,7 @@ namespace aisilol
 				GUI.color = mOriginalColor;
 			}
 
-			private Color mOriginalColor;
+			private readonly Color mOriginalColor;
 		}
         public class DisableGroupScope : Scope
         {
