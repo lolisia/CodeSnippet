@@ -38,8 +38,8 @@ namespace aisilol
 	public class SceneViewWindowManager<T>
 		where T : SceneViewWindow, new()
 	{
-		private static Dictionary<SceneView, SceneViewWindowManager<T>> mInstanceDic = new Dictionary<SceneView, SceneViewWindowManager<T>>();
-		private static T mWindow = new T();
+		private static readonly Dictionary<SceneView, SceneViewWindowManager<T>> mInstanceDic = new Dictionary<SceneView, SceneViewWindowManager<T>>();
+		private static readonly T mWindow = new T();
 
 		private Rect mWindowRect;
 		private bool mInitialized;
@@ -87,16 +87,16 @@ namespace aisilol
 					mWindowRect = new Rect(mWindow.GetDefaultPosition(view.camera.pixelRect), Vector2.zero);
 
 				// Window Size를 갱신해야 한다면, 모든 SceneViewWindow의 Update를 예약한다.
-				if (mWindow.NeedUpdateWindowSize)
-				{
-					mWindow.NeedUpdateWindowSize = false;
-					mInstanceDic.ForEachValues(_ => _.mNeedUpdateWindowSize = true);
+				if (!mWindow.NeedUpdateWindowSize) 
+					return;
+				
+				mWindow.NeedUpdateWindowSize = false;
+				mInstanceDic.ForEachValues(_ => _.mNeedUpdateWindowSize = true);
 
-					SceneView.RepaintAll();
-				}
+				SceneView.RepaintAll();
 			}
 		}
-		private void DrawWindow(int id)
+		private static void DrawWindow(int id)
 		{
 			mWindow.OnSceneGUI();
 

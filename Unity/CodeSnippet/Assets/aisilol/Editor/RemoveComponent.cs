@@ -33,7 +33,7 @@ namespace aisilol
 
 				foreach (var c in components)
 				{
-					GameObject.DestroyImmediate(c, true);
+					Object.DestroyImmediate(c, true);
 				}
 
 				EditorUtility.SetDirty(asset);

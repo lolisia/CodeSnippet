@@ -46,6 +46,29 @@ namespace aisilol
 				mScale.vector3Value = Vector3.one;
 			}
 
+			using (new GUILayout.VerticalScope(GUI.skin.box))
+			{
+				using (new GUI_.IndentScope())
+				using (new GUILayout.HorizontalScope())
+				{
+					mFoldOutWorldTransform = EditorGUILayout.Foldout(mFoldOutWorldTransform, "World Transform");
+				}
+
+				if (mFoldOutWorldTransform)
+				{
+					var transform = target as Transform;
+					if (transform != null)
+					{
+						using (new EditorGUI.DisabledScope(true))
+						{
+							EditorGUILayout.Vector3Field("Position", transform.position);
+							EditorGUILayout.Vector3Field("Rotation", transform.rotation.eulerAngles);
+							EditorGUILayout.Vector3Field("Scale", transform.lossyScale);
+						}
+					}
+				}
+			}
+			
 			serializedObject.ApplyModifiedProperties();
 		}
 
@@ -87,5 +110,7 @@ namespace aisilol
 		private SerializedProperty mPosition;
 		private SerializedProperty mRotation;
 		private SerializedProperty mScale;
+
+		private static bool mFoldOutWorldTransform;
 	}
 }

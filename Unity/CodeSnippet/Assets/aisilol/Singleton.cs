@@ -5,7 +5,7 @@ namespace aisilol
 	public class Singleton<T> : MonoBehaviour
 		where T : Singleton<T>
 	{
-		public static string Name { get { return string.Format("<SINGLETON> {0}", typeof(T).Name); } }
+		private static string Name { get { return string.Format("<SINGLETON> {0}", typeof(T).Name); } }
 		public static T Instance
 		{
 			get
@@ -14,7 +14,7 @@ namespace aisilol
 					return mInstance;
 
 				// 이미 생성한 Instance가 1개 존재할 경우, 해당 Instance 반환
-				var instances = Object.FindObjectsOfType<T>();
+				var instances = FindObjectsOfType<T>();
 				if (instances.Length == 1)
 				{
 					mInstance = instances[0];

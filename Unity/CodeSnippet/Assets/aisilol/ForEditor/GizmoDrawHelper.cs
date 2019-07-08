@@ -32,7 +32,7 @@ namespace aisilol
 			});
 		}
 
-		private Dictionary<GameObject, List<IGizmoDrawItem>> mGizmoDrawItemListDic = new Dictionary<GameObject, List<IGizmoDrawItem>>();
+		private readonly Dictionary<GameObject, List<IGizmoDrawItem>> mGizmoDrawItemListDic = new Dictionary<GameObject, List<IGizmoDrawItem>>();
 	}
 
 
@@ -100,9 +100,9 @@ namespace aisilol
 		}
 
 
-		private Vector3 mDrawOffset;
+		private readonly Vector3 mDrawOffset;
 		private GUIStyle mStyle;
-		private Func<GameObject, string> mTextAction;
+		private readonly Func<GameObject, string> mTextAction;
 	}
 }
 #endif

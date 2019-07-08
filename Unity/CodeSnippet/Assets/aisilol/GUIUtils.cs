@@ -19,16 +19,17 @@ namespace aisilol
 
 			private readonly Color mOriginalColor;
 		}
-        public class DisableGroupScope : Scope
-        {
-            public DisableGroupScope(bool _disable)
-            {
-                EditorGUI.BeginDisabledGroup(_disable);
-            }
-            protected override void CloseScope()
-            {
-                EditorGUI.EndDisabledGroup();
-            }
-        }
+
+		public class IndentScope : Scope
+		{
+			public IndentScope()
+			{
+				EditorGUI.indentLevel++;
+			}
+			protected override void CloseScope()
+			{
+				EditorGUI.indentLevel--;
+			}
+		}  
 	}
 }

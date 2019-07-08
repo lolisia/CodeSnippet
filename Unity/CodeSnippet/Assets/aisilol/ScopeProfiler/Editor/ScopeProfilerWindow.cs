@@ -46,11 +46,13 @@ namespace aisilol
 
 					foreach (var pair in ScopeProfilerManager.GetResult())
 					{
-						var row = new List<GUIContent>();
-						row.Add(new GUIContent(pair.Key));
-						row.Add(new GUIContent(pair.Value.CallCount.ToString()));
-						row.Add(new GUIContent(pair.Value.Elapsed.ToString("N2")));
-						row.Add(new GUIContent(pair.Value.Average.ToString("N2") + "/s"));
+						var row = new List<GUIContent>
+						{
+							new GUIContent(pair.Key),
+							new GUIContent(pair.Value.CallCount.ToString()),
+							new GUIContent(pair.Value.Elapsed.ToString("N2")),
+							new GUIContent(pair.Value.Average.ToString("N2") + "/s")
+						};
 
 						mRows.Add(row);
 					}

@@ -56,19 +56,19 @@ namespace aisilol
 			{
 				using (new GUI_.ColorScope(Mathf.Approximately(Current, Min) ? Color.red : Color.green))
 				{
-					GUI.Label(new Rect(0, 0, 100, height), string.Format("{0} FPS", Current.ToString("f2")), mBoldLabel);
+					GUI.Label(new Rect(0, 0, 100, height), string.Format("{0:f2} FPS", Current), mBoldLabel);
 				}
 
-				GUI.Label(new Rect(0, height * 1, 100, height), string.Format("{0} AVERAGE", Average.ToString("f2")));
+				GUI.Label(new Rect(0, height * 1, 100, height), string.Format("{0:f2} AVERAGE", Average));
 
 				using (new GUI_.ColorScope(Color.red))
 				{
 					var min = Max < Min ? 0 : Min;
-					GUI.Label(new Rect(0, height * 2, 100, height), string.Format("{0} MIN", min.ToString("f2")));
+					GUI.Label(new Rect(0, height * 2, 100, height), string.Format("{0:f2} MIN", min));
 				}
 				using (new GUI_.ColorScope(Color.green))
 				{
-					GUI.Label(new Rect(0, height * 3, 100, height), string.Format("{0} MAX", Max.ToString("f2")));
+					GUI.Label(new Rect(0, height * 3, 100, height), string.Format("{0:f2} MAX", Max));
 				}
 			}
 		}
