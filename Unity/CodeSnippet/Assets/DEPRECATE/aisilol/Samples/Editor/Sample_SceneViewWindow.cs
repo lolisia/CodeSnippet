@@ -10,7 +10,7 @@ namespace aisilol
 		[InitializeOnLoadMethod]
 		public static void OnInitialize()
 		{
-			SceneView.onSceneGUIDelegate += SceneViewWindowManager<Sample_SceneViewWindow>.OnSceneGUI;
+			SceneView.duringSceneGui += SceneViewWindowManager<Sample_SceneViewWindow>.OnSceneGUI;
 		}
 
 		public override Vector2 GetDefaultPosition(Rect sceneViewRect)

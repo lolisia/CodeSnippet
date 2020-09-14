@@ -3,11 +3,14 @@ ProjectSettings
 *.csproj
 *.sln
 *.log
+*-lock.*
 .vs
+.idea
 /.gitignore
 /Unity/CodeSnippet/*.userprefs
 /README.md.meta
 /Unity.meta
 /Unity/CodeSnippet.meta
 /Unity/CodeSnippet/Assets.meta
+/Unity/CodeSnippet/obj
 Temp
