@@ -1,8 +1,8 @@
 Library
 ProjectSettings
-CodeSnippet.csproj
-CodeSnippet.Editor.csproj
-CodeSnippet.sln
+*.csproj
+*.sln
+*.log
 .vs
 /.gitignore
 /Unity/CodeSnippet/*.userprefs
