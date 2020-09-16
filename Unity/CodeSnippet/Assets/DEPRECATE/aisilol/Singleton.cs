@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace aisilol
+namespace aisilol_Deprecate
 {
 	public class Singleton<T> : MonoBehaviour
 		where T : Singleton<T>

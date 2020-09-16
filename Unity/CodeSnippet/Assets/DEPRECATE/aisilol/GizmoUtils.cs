@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace aisilol
+namespace aisilol_Deprecate
 {
     public class GizmoMatrixScope : Scope
     {

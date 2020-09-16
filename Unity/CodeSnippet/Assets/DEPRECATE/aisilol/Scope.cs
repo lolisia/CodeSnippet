@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace aisilol
+namespace aisilol_Deprecate
 {
 	public abstract class Scope : IDisposable
 	{

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace aisilol
+namespace aisilol_Deprecate
 {
 	public class ComponentCache
 	{

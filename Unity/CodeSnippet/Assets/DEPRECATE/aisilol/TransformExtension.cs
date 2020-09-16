@@ -1,4 +1,4 @@
-﻿using aisilol;
+﻿using aisilol_Deprecate;
 using UnityEngine;
 
 public static class TransformExtension

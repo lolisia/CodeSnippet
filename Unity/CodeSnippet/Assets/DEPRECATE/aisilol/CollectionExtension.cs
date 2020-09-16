@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace aisilol
+namespace aisilol_Deprecate
 {
     public static class DictionaryExtension
     {

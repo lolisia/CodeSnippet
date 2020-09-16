@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace aisilol
+namespace aisilol_Deprecate
 {
 	namespace GUI_
 	{

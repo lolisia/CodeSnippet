@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿using UnityEditor;
+using UnityEngine;
 
-namespace aisilol_Deprecate
+namespace aisilol
 {
-	[CustomEditor(typeof(Transform))]
-	public class TransformInspector : Editor
-	{
+    [CustomEditor(typeof(Transform))]
+    public class TransformInspector : Editor
+    {
 		// for Unity
 		private void OnEnable()
 		{
@@ -28,7 +28,7 @@ namespace aisilol_Deprecate
 			EditorGUILayout.BeginHorizontal();
 			if (GUILayout.Button("R", GUILayout.Width(20)))
 				mRotation.quaternionValue = Quaternion.identity;
-			rotationPropertyField(mRotation, ROTATION_GUI_CONTENTS);
+			rotationPropertyField(ROTATION_GUI_CONTENTS);
 			EditorGUILayout.EndHorizontal();
 
 			// Scale
@@ -68,19 +68,24 @@ namespace aisilol_Deprecate
 					}
 				}
 			}
-			
+
 			serializedObject.ApplyModifiedProperties();
 		}
 
-		private void rotationPropertyField(SerializedProperty _rotation, GUIContent _contents)
+		private void rotationPropertyField(GUIContent _contents)
 		{
 			var transform = targets[0] as Transform;
+			if (transform == null)
+				return;
+
 			var localRotation = transform.localRotation;
-			foreach (var target in targets)
+			foreach (var o in targets)
 			{
-				var t = target as Transform;
-				if (t.localRotation == localRotation)
-					continue;
+				if (o is Transform t)
+				{
+					if (t.localRotation == localRotation)
+						continue;
+				}
 
 				EditorGUI.showMixedValue = true;
 				break;
@@ -90,11 +95,11 @@ namespace aisilol_Deprecate
 			var eulerAngles = EditorGUILayout.Vector3Field(_contents, localRotation.eulerAngles);
 			if (EditorGUI.EndChangeCheck())
 			{
-				Undo.RecordObjects(this.targets, "Rotation Changed");
-				foreach (var target in targets)
+				Undo.RecordObjects(targets, "Rotation Changed");
+				foreach (var o in targets)
 				{
-					var t = target as Transform;
-					t.localEulerAngles = eulerAngles;
+					if (o is Transform t)
+						t.localEulerAngles = eulerAngles;
 				}
 
 				mRotation.serializedObject.SetIsDifferentCacheDirty();
@@ -103,14 +108,14 @@ namespace aisilol_Deprecate
 			EditorGUI.showMixedValue = false;
 		}
 
-		private static GUIContent POSITION_GUI_CONTENTS = new GUIContent("Position");
-		private static GUIContent ROTATION_GUI_CONTENTS = new GUIContent("Rotation");
-		private static GUIContent SCALE_GUI_CONTENTS = new GUIContent("Scale");
+		private static readonly GUIContent POSITION_GUI_CONTENTS = new GUIContent("Position");
+		private static readonly GUIContent ROTATION_GUI_CONTENTS = new GUIContent("Rotation");
+		private static readonly GUIContent SCALE_GUI_CONTENTS = new GUIContent("Scale");
 
 		private SerializedProperty mPosition;
 		private SerializedProperty mRotation;
 		private SerializedProperty mScale;
 
 		private static bool mFoldOutWorldTransform;
-	}
+    }
 }

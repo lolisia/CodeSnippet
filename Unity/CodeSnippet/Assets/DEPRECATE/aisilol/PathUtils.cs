@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace aisilol
+namespace aisilol_Deprecate
 {
 	public static class Path_
 	{
